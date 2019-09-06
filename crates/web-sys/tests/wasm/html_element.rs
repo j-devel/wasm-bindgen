@@ -33,6 +33,10 @@ fn test_html_element() {
     element.set_hidden(true);
     assert!(element.hidden(), "Should be hidden");
 
+    assert_eq!(element.dataset().get("id"), "", "Shouldn't have data-id");
+    element.dataset().set("id", "123").unwrap();
+    assert_eq!(element.dataset().get("id"), "123", "Should have data-id");
+
     // TODO add a click handler here
     element.click();
 
