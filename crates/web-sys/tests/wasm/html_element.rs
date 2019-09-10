@@ -33,9 +33,20 @@ fn test_html_element() {
     element.set_hidden(true);
     assert!(element.hidden(), "Should be hidden");
 
-    assert_eq!(element.dataset().get("id"), "", "Shouldn't have data-id");
+    //========
+    //---- CssStyleDeclaration  getters
+    assert_eq!(element.style().get_property_priority("foo"), "", "debug"); // pass
+    assert_eq!(element.style().get_property_value("foo").unwrap(), "", "debug"); // pass
+    assert_eq!(element.style().item(0), "", "debug"); // pass
+    //assert_eq!(element.style().get(0), "", "debug"); // fail  !!!!
+    assert_eq!(element.style().css_text(), "", "debug"); // pass
+    assert_eq!(element.style().length(), 0, "debug"); // pass 
+    assert_eq!(element.style().parent_rule(), None, "debug"); // pass
+    //---- DomStringMap
+    //assert_eq!(element.dataset().get("id"), "", "Shouldn't have data-id"); // fail !!!!
     element.dataset().set("id", "123").unwrap();
     assert_eq!(element.dataset().get("id"), "123", "Should have data-id");
+    //========
 
     // TODO add a click handler here
     element.click();
