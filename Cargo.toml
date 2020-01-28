@@ -84,6 +84,7 @@ members = [
   "examples/websockets",
   "examples/without-a-bundler",
   "examples/without-a-bundler-no-modules",
+  "examples/without-a-bundler-no-modules-worker",
   "tests/no-std",
 ]
 
